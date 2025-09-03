@@ -53,6 +53,18 @@ public class HttpGenericServiceImpl implements HttpGenericService {
         return decodeOrThrow(resp, responseType);
     }
 
+    @Override
+    public <T, B> T put(String path, Map<String, ?> query, B body, String jwt, Class<T> responseType) {
+        Response resp = client.put(path, query, body, auth(jwt));
+        return decodeOrThrow(resp, responseType);
+    }
+
+    @Override
+    public <T> T delete(String path, Map<String, ?> query, String jwt, Class<T> responseType) {
+        Response resp =client.delete(path, query, auth(jwt));
+        return decodeOrThrow(resp, responseType);
+    }
+
     /*
      * ================== Genéricos: ParameterizedTypeReference<T>
      * ==================
@@ -130,4 +142,6 @@ public class HttpGenericServiceImpl implements HttpGenericService {
             log.info("Error: {}", ignore.getMessage(), ignore);
         }
     }
+
+    
 }

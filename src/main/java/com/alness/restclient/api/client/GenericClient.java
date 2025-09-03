@@ -9,16 +9,29 @@ import com.alness.restclient.api.config.FeignCommonConfig;
 @FeignClient(name = "genericClient", url = "${peer.api.base-url}", configuration = FeignCommonConfig.class)
 public interface GenericClient {
 
-    @GetMapping("/{path:.+}")
-    feign.Response get(
-            @PathVariable("path") String path,
-            @RequestParam Map<String, ?> query,
-            @RequestHeader Map<String, String> headers);
+        @GetMapping("/{path:.+}")
+        feign.Response get(
+                        @PathVariable("path") String path,
+                        @RequestParam Map<String, ?> query,
+                        @RequestHeader Map<String, String> headers);
 
-    @PostMapping(value = "/{path:.+}", consumes = "application/json")
-    feign.Response post(
-            @PathVariable("path") String path,
-            @RequestParam Map<String, ?> query,
-            @RequestBody Object body,
-            @RequestHeader Map<String, String> headers);
+        @PostMapping(value = "/{path:.+}", consumes = "application/json")
+        feign.Response post(
+                        @PathVariable("path") String path,
+                        @RequestParam Map<String, ?> query,
+                        @RequestBody Object body,
+                        @RequestHeader Map<String, String> headers);
+
+        @PutMapping(value = "/{path:.+}", consumes = "application/json")
+        feign.Response put(
+                        @PathVariable("path") String path,
+                        @RequestParam Map<String, ?> query,
+                        @RequestBody Object body,
+                        @RequestHeader Map<String, String> headers);
+
+        @DeleteMapping("/{path:.+}")
+        feign.Response delete(
+                        @PathVariable("path") String path,
+                        @RequestParam Map<String, ?> query,
+                        @RequestHeader Map<String, String> headers);
 }
