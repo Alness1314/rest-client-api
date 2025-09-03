@@ -1,0 +1,19 @@
+{
+    "properties": [
+        {
+            "name": "feign.httpclient.enabled",
+            "type": "java.lang.String",
+            "description": "A description for 'feign.httpclient.enabled'"
+        },
+        {
+            "name": "feign.okhttp.enabled",
+            "type": "java.lang.String",
+            "description": "A description for 'feign.okhttp.enabled'"
+        },
+        {
+            "name": "peer.api.base-url",
+            "type": "java.lang.String",
+            "description": "A description for 'peer.api.base-url'"
+        }
+    ]
+}
